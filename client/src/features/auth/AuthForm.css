@@ -1,0 +1,31 @@
+/* src/features/auth/AuthForm.css */
+body {
+  background-color: var(--primary-bg-color);  /* Global background */
+}
+
+.card {
+  background-color: var(--card-bg-color);     /* Card background */
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: var(--button-bg-color);   /* Button background */
+  color: white;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg-color); /* Button hover */
+}
+
+.text-danger {
+  color: var(--error-color);  /* Error message color */
+}
+
+a {
+  color: var(--link-color); /* Link color */
+}
+
+a:hover {
+  text-decoration: underline;
+}

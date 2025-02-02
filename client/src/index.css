@@ -1,68 +1,122 @@
+/* src/styles/variables.css */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  --primary-bg-color: #ffffff;     /* Dark background color */
+  --card-bg-color: #ffffff;        /* White background color for cards */
+  --button-bg-color: #333333;      /* Dark button background */
+  --button-hover-bg-color: #444444;/* Hover background for buttons */
+  --text-color: #333333;           /* General text color */
+  --link-color: #666666;           /* Link color */
+  --error-color: #ff4d4d;          /* Error message color */
 }
 
 body {
-  margin: 0;
+  padding-top: 56px; /* Adjust the value based on your navbar's height */
+}
+
+.navbar {
+   box-shadow: 0 5px 4px 0 rgba(0,0,0,.1);
+}
+
+/* buttons */
+
+.category-buttons {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.category-buttons button {
+  margin: 5px;  /* Adjust this value as needed */
 }
 
-button {
+
+/* recipes */
+
+.recipe-details {
+  font-family: Arial, sans-serif;
+  padding: 2rem;
+}
+
+.recipe-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.subtitle {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Image styling for responsiveness */
+.recipe-image-container {
+  text-align: center;
+}
+
+.recipe-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  max-height: 400px; /* Set the max height for the image */
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+.recipe-meta {
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.ingredients-list,
+.instructions-list {
+  padding-left: 1rem;
+  font-size: 1rem;
+}
+
+.ingredients-list li,
+.instructions-list li {
+  margin-bottom: 0.5rem;
+}
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+@media (max-width: 768px) {
+  .table th,
+  .table td {
+    font-size: 14px;
   }
 }
+
+.dropdown-toggle {
+  width: 100%;
+  text-align: center;
+}
+
+.divider {
+  border-top: 2px solid #e0e0e0;
+  width: 50%;
+  margin: 20px auto;
+}
+
+
+
+.card {
+  margin: auto; /* Center the card within its column */
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px; /* Ensure consistent height */
+  object-fit: cover; /* Crop the image nicely */
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+
