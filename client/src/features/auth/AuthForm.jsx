@@ -32,28 +32,45 @@ function AuthForm() {
     }
 
     const authMethod = isLogin ? login : register;
-    const credentials = { username, password };
 
-try {
-  setLoading(true);
-  const result = await authMethod(credentials).unwrap(); 
-  console.log("Login successful, redirecting to dashboard...", result);
-  
-  if (result.token) {
-    localStorage.setItem("token", result.token);  
-  }
-  
-  navigate("/");  
-} catch (err) {
-  setLoading(false);
+    let authPayload;
 
-  if (err.status === 401) {
-    setError("Invalid login credentials.");
-  } else if (err.status === 500) {
-    setError("Server error. Please try again later.");
-  } else {
-    setError(err?.data?.message || "An unexpected error occurred.");
-  }
+    if(isLogin) {
+      authPayload = {username, password}
+    } else {
+      if (!name) {
+        setError("Full Name is required for registration.");
+        return
+      }
+    authPayload = new FormData();
+    authPayload.append("username", username);
+    authPayload.append("password", password);
+    authPayload.append("name", name); 
+    if (avatarFile) {
+      authPayload.append("avatar", avatarFile);
+    }
+    }
+
+    try {
+    setLoading(true);
+    const result = await authMethod(authPayload).unwrap(); 
+    console.log("Login successful, redirecting to dashboard...", result);
+    
+    if (result.token) {
+      localStorage.setItem("token", result.token);  
+    }
+    
+    navigate("/");  
+  } catch (err) {
+    setLoading(false);
+
+    if (err.status === 401) {
+      setError("Invalid login credentials.");
+    } else if (err.status === 500) {
+      setError("Server error. Please try again later.");
+    } else {
+      setError(err?.data?.message || "An unexpected error occurred.");
+    }
 }
 
   }

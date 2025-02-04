@@ -8,10 +8,14 @@ const authenticateToken = require("../middleware/authenticateToken");
 
 // 🟢 **Register a new admin**
 router.post("/register", upload.single("avatar"), async (req, res) => {
+  console.log("Received Registration Data:", req.body);
+  console.log("Received File:", req.file ? "Yes (File Uploaded)" : "No File");
+  
   const { username, password, name } = req.body;
   const avatar = req.file;
 
   if (!username || !password || !name) {
+     console.log("❌ Missing required fields:", { username, password, name });
     return res.status(400).json({ message: "All fields are required." });
   }
 

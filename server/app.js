@@ -3,6 +3,7 @@ const express = require("express");
 const morgan = require("morgan");
 const app = express();
 const jwt = require("jsonwebtoken");
+const multer = require("multer");
 const helmet = require("helmet")
 const cors = require("cors");
 

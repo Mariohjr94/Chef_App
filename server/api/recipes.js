@@ -115,7 +115,7 @@ router.post("/", authenticateToken, upload.single('image'), async (req, res, nex
       console.log("Validation failed: Invalid file type:", req.file.mimetype);
       return res.status(400).send({ error: "Invalid file type. Only images are allowed." });
     }
-    if (req.file && req.file.size > 5 * 1024 * 1024) {
+    if (req.file && req.file.size > 10 * 1024 * 1024) {
       console.log("Validation failed: File size exceeds limit:", req.file.size);
       return res.status(400).send({ error: "File size exceeds 5MB limit." });
     }
