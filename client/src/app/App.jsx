@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import NavBar from "../components/Navbar";
-import LandingPage from '../components/LandingPage';
+import LandingPage from '../pages/LandingPage';
 import AuthForm from '../features/auth/AuthForm';
 import RecipeDetails from '../components/RecipeDetails';
 import RecipeForm from '../components/RecipeForm';
@@ -23,6 +23,7 @@ function App() {
   return (
     <>
       <NavBar />
+
 
       <Routes>
         {/* Public routes */}

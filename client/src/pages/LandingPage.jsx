@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CategoryButtons from "../components/CategoryButtons"; 
 import { Link } from "react-router-dom";
 
 function LandingPage() {
@@ -96,25 +97,17 @@ useEffect(() => {
           onChange={handleSearch}
         />
       </div>
+<div>
 
-     {/* Category Buttons */}
-<div className="mb-5 text-center category-buttons">
-  <button
-    className={`btn btn-dark mx-1 ${selectedCategory === null ? 'active' : ''}`}
-    onClick={() => handleCategoryClick(null)}
-  >
-    All
-  </button>
-  {categories.map((category) => (
-    <button
-      key={category.id}
-      className={`btn btn-warning mx-1 ${selectedCategory === category.id ? 'active' : ''}`}
-      onClick={() => handleCategoryClick(category.id)}
-    >
-      {category.name}
-    </button>
-  ))}
+{/* category buttons */}
+<CategoryButtons 
+  categories={categories}
+  selectedCategory={selectedCategory} 
+  onCategoryClick={handleCategoryClick}
+  />
 </div>
+
+
 
 {/* Recipe Cards */}
 <div className="row">
