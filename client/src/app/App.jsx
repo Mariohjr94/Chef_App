@@ -39,7 +39,6 @@ function App() {
         {/* Admin routes */}
         {loggedIn ? (
           <>
-            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/add-recipe" element={<RecipeForm />} />
           </>
         ) : (

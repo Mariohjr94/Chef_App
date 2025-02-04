@@ -11,7 +11,9 @@ function AuthForm() {
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(""); 
+  const [name, setName] = useState(""); 
+  const [avatarFile, setAvatarFile] = useState(null); 
 
   const [isLogin, setIsLogin] = useState(true);
   const authType = isLogin ? "Login" : "Register";
@@ -83,6 +85,36 @@ try {
               required
             />
           </div>
+          {/* 🔹 Only show name & avatar when registering */}
+          {!isLogin && (
+            <>
+              <div className="mb-3">
+                <label className="form-label" htmlFor="name">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  name="name"
+                  onChange={(event) => setName(event.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label className="form-label" htmlFor="avatar">
+                  Profile Picture (Optional)
+                </label>
+                <input
+                  type="file"
+                  className="form-control"
+                  id="avatar"
+                  accept="image/*"
+                  onChange={(event) => setAvatarFile(event.target.files[0])}
+                />
+              </div>
+            </>
+          )}
           {error && <p className="text-danger text-center">{error}</p>}
           <button
             type="submit"

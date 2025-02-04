@@ -117,10 +117,10 @@ useEffect(() => {
     }
   };
 
- return (
+return (
   
     <div className="d-flex justify-content-center align-items-center vh-100">
-       <div className="card p-4">
+      <div className="card p-4">
           <h1 className="text-center  mb-5">Add Recipe</h1>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
@@ -233,7 +233,7 @@ useEffect(() => {
               {recipe.id ? "Update" : "Add"} Recipe
             </button>
       </form>
-       </div>
+      </div>
       
     </div>
   );
